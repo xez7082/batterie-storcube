@@ -4,5 +4,5 @@
   "domains": ["storcube_bridge"],
   "zip_release": false,
   "filename": "custom_components/storcube_bridge/manifest.json",
-  "version": "1.0.5"
+  "version": "1.0.14"
 }
