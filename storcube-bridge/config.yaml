@@ -1,0 +1,23 @@
+name: "Storcube Stacker Bridge"
+description: "Récupère les infos de la batterie Storcube"
+version: "1.0.0"
+slug: "storcube_stacker_bridge"
+arch:
+  - aarch64
+  - amd64
+  - armv7
+init: false
+options:
+  MQTT_BROKER: "192.168.1.XX"
+  MQTT_PORT: 1883
+  LOGIN_NAME: ""
+  PASSWORD: ""
+  DEVICE_ID: ""
+schema:
+  MQTT_BROKER: str
+  MQTT_PORT: int
+  MQTT_USERNAME: str?
+  MQTT_PASSWORD: password?
+  LOGIN_NAME: str
+  PASSWORD: password
+  DEVICE_ID: str
