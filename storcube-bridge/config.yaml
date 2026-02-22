@@ -8,7 +8,7 @@ arch:
   - armv7
 init: false
 options:
-  MQTT_BROKER: "192.168.1.50"
+  MQTT_BROKER: "192.168.1.18"
   MQTT_PORT: 1883
   LOGIN_NAME: "votre@email.com"
   PASSWORD: "votre_password"
