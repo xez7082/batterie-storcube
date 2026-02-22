@@ -1,11 +1,9 @@
 {
   "domain": "storcube_bridge",
   "name": "Storcube Bridge",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "documentation": "https://github.com/xez7082/batterie-storcube",
-  "requirements": ["paho-mqtt", "asyncio"],
-  "dependencies": [],
+  "requirements": ["paho-mqtt"],
   "codeowners": ["@xez7082"],
-  "iot_class": "local_polling",
-  "integration_type": "hub"
+  "iot_class": "local_polling"
 }
