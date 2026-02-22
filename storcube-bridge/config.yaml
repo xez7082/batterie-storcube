@@ -1,5 +1,5 @@
-name: "Storcube Stacker Bridge"
-description: "Récupère les données Storcube via MQTT"
+name: "Storcube Bridge"
+description: "Lien entre Storcube et MQTT"
 version: "1.0.0"
 slug: "storcube-bridge"
 arch:
@@ -8,11 +8,11 @@ arch:
   - armv7
 init: false
 options:
-  MQTT_BROKER: "192.168.1.XX"
+  MQTT_BROKER: "192.168.1.50"
   MQTT_PORT: 1883
-  LOGIN_NAME: ""
-  PASSWORD: ""
-  DEVICE_ID: ""
+  LOGIN_NAME: "votre@email.com"
+  PASSWORD: "votre_password"
+  DEVICE_ID: "votre_id"
 schema:
   MQTT_BROKER: str
   MQTT_PORT: int
