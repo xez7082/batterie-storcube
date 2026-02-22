@@ -1,27 +1,32 @@
+version: '3.8'
+
 services:
   storcube-bridge:
+    # Construit l'image à partir du Dockerfile présent dans le dossier
     build: .
+    
+    # Nom du conteneur affiché dans Docker / Portainer
     container_name: storcube-stacker-bridge
+    
+    # Redémarre automatiquement le script en cas de crash ou de reboot du serveur
     restart: unless-stopped
+    
+    # Charge les variables sensibles depuis le fichier .env (MQTT_BROKER, DEVICE_ID, etc.)
+    env_file:
+      - .env
+
     environment:
-      # --- Configuration MQTT ---
-      - MQTT_BROKER=192.168.1.50  # Remplace par l'IP de ton broker (ex: addon Mosquitto)
-      - MQTT_PORT=1883
-      - MQTT_USERNAME=votre_utilisateur_mqtt
-      - MQTT_PASSWORD=votre_mot_de_passe_mqtt
-      
-      # --- Configuration Storcube ---
-      - LOGIN_NAME=votre_email@exemple.com
-      - PASSWORD=votre_mot_de_passe_app_storcube
-      - DEVICE_ID=votre_id_appareil_unique
-      - APP_CODE=Storcube
-      
-      # --- Topics (Optionnel, les valeurs par défaut sont dans le script) ---
-      - MQTT_TOPIC_BATTERY=battery/reportEquip
-      - MQTT_TOPIC_POWER=battery/set_power
-      - MQTT_TOPIC_THRESHOLD=battery/set_threshold
+      # Assure que les logs Python s'affichent en temps réel dans la console
+      - PYTHONUNBUFFERED=1
+      # Optionnel : Forcer le fuseau horaire pour des logs à la bonne heure
+      - TZ=Europe/Paris
+
+    # Limite la taille des logs pour protéger l'espace disque
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
+
+    # Réseau : utilise le mode "bridge" par défaut (ou "host" si besoin spécifique de découverte réseau)
+    network_mode: bridge
