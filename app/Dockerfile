@@ -1,15 +1,15 @@
-FROM python:3.11-slim
-
-WORKDIR /usr/src/app
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base-python:3.11-alpine3.18
+FROM ${BUILD_FROM}
 
 # Installation des dépendances
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copie du script
-COPY batteryMqtt.py .
+# Copie du code
+WORKDIR /usr/src/app
+COPY . .
 
-# Force l'affichage des logs Python dans la console Docker
-ENV PYTHONUNBUFFERED=1
+# Droits d'exécution pour le script de lancement
+RUN chmod a+x run.sh
 
-CMD ["python", "./batteryMqtt.py"]
+CMD [ "./run.sh" ]
