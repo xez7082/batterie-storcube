@@ -1,7 +1,7 @@
 name: "Storcube Stacker Bridge"
-description: "Récupère les infos de la batterie Storcube"
+description: "Récupère les données Storcube via MQTT"
 version: "1.0.0"
-slug: "storcube_stacker_bridge"
+slug: "storcube-bridge"
 arch:
   - aarch64
   - amd64
