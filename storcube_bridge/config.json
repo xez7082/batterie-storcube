@@ -1,6 +1,6 @@
 name: "Storcube Stacker Bridge"
 description: "Lien entre Storcube et MQTT"
-version: "1.0.0"
+version: "1.0.1"
 slug: "batterie_storcube"
 startup: services
 boot: auto
