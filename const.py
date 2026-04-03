@@ -1,1 +1,1 @@
-DOMAIN = "storcube_bridge"
+DOMAIN: str = "storcube"
